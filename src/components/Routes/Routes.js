@@ -1,0 +1,13 @@
+export const HOME = '/';
+export const SIGN_UP = '/signup';
+export const SIGN_IN = '/signin';
+export const SIGN_OUT = '/signout'
+export const PARKS = '/parks';
+export const PARK_ID = '/parks/:id'
+export const ABOUT = '/about';
+export const STORES = '/stores';
+export const STORE_ID = '/stores/:id';
+export const ACCOUNT = '/account';
+export const ADMIN = '/admin';
+export const PASSWORD_FORGET = '/pw-forget';
+export const PASSWORD_CHANGE = '/pw-change';

@@ -19,7 +19,7 @@ class Main extends React.Component {
   
 
   render = () => {
-    //console.log('inside Main ', this.props);
+    console.log('inside Main ', this.props);
     return (
       <div className='container' id='main'>
       <Route exact path={ROUTES.HOME} component={Home} />
@@ -28,11 +28,15 @@ class Main extends React.Component {
         <Parks 
         parks={this.props.parks}
         user={this.props.user}
-       
         />}
       />
       <Route path={ROUTES.PARK_ID} component={Park} />
-      <Route path={ROUTES.STORES} component={Stores} />
+      <Route path={ROUTES.STORES} render={props => 
+      <Stores
+        user={this.props.user}
+        stores={this.props.stores}
+        />}
+        />
       <Route path={ROUTES.STORE_ID} component={StoreInfo} />
       <Route path={ROUTES.SIGN_IN} component={SignIn} />
       <Route path={ROUTES.SIGN_OUT} component={SignOut} />

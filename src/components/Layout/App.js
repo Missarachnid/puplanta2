@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Main from './Main'; 
 import { connect } from 'react-redux';
 import ParkLocations from '../location-data/ParkLocations';
+import StoreLocations from '../location-data/StoreLocations';
 //import axios from 'axios';
 
 import {
@@ -34,7 +35,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({type: LOAD_PARKS, payload: parksData})
   },
   loadStores: (storesData) => {
-    dispatch({type: LOAD_STORES, payload:storesData})
+    dispatch({type: LOAD_STORES, payload: storesData})
   },
   updateUser: (userData) => {
     dispatch({type: UPDATE_USER, payload: userData})
@@ -56,7 +57,8 @@ class App extends React.Component {
     
     /* After Api is built, axios will be used to gather the data and the the store will be updated */
     this.props.loadParks(ParkLocations);
-    //console.log('parks ', this.props)
+    this.props.loadStores(StoreLocations);
+   
   }
 
   render = () => {
@@ -68,6 +70,8 @@ class App extends React.Component {
       <Main 
         parks={this.props.parks}
         user={this.props.user}
+        stores={this.props.stores}
+
         /*toggleInfoWindow={this.props.toggleInfoWindow}
         showinfowindow={this.props.showinfowindow}
         currentMarker={this.props.currentMarker}

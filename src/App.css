@@ -20,6 +20,10 @@
   padding: 0;
 }
 
+.headline {
+  margin-bottom: 40px;
+}
+
 /*Header*/
 #app-header {
 background: none;
@@ -61,8 +65,7 @@ box-shadow: 0 1px 5px 1px rgba(135, 0, 0, 0.3);
 
 
 /* About */
-#about,
-#parks {
+#about {
   background-color: white;
   padding: 40px;
   text-align: center;
@@ -121,3 +124,80 @@ input {
 
 /* Parks */
 
+
+
+#parks {
+  text-align: center;
+}
+
+.parks-item {
+  list-style-type: none;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+.parks-item p {
+  padding-bottom: 8px;
+  padding-top: 8px;
+  margin-bottom: 0;
+}
+
+.card-main {
+  height: 340px;
+  max-width: 300px;
+  
+  border: none;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);
+  margin: 20px auto 10px auto;
+}
+
+.card-main-image {
+ height: 120px;
+ width: 120px;
+ background-size: cover;
+ margin: 20px auto 10px auto;
+ border: 3px solid #ff9966;
+ box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);
+}
+
+.paw-button {
+  background: url('./img/paws.svg') center no-repeat;
+  background-size: contain;
+  width: 60px;
+  box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.card-text-seperator {
+  height: 90px;
+}
+/*  Map */
+#map-placement {
+  height: 440px;
+}
+
+#myMap {
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);
+}
+
+/* Info Windows */
+.card-info-image {
+  height: 60px;
+  width: auto;
+  background-size: contain;
+
+  border: 3px solid #ff9966;
+  box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);
+}
+
+.paw-button-info {
+  width: 50px;
+  background: url('./img/paws.svg') center no-repeat;
+  background-size: contain;
+  box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);
+  font-size: 1em;
+  text-align: center;
+}

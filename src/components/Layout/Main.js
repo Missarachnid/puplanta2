@@ -13,17 +13,24 @@ import PasswordChange from './PasswordChange';
 import SignUpPage from './SignUp';
 import Park from './Park';
 import StoreInfo from './StoreInfo';
+import { withAuthentication } from '../Session';
 
-export default class className extends React.Component {
-  state = {
-    
-  }
+class Main extends React.Component {
+  
 
-  render = () => (
-    <div className='container' id='main'>
+  render = () => {
+    //console.log('inside Main ', this.props);
+    return (
+      <div className='container' id='main'>
       <Route exact path={ROUTES.HOME} component={Home} />
       <Route path={ROUTES.ABOUT} component={About} />
-      <Route path={ROUTES.PARKS} component={Parks} />
+      <Route path={ROUTES.PARKS} render={props => 
+        <Parks 
+        parks={this.props.parks}
+        user={this.props.user}
+       
+        />}
+      />
       <Route path={ROUTES.PARK_ID} component={Park} />
       <Route path={ROUTES.STORES} component={Stores} />
       <Route path={ROUTES.STORE_ID} component={StoreInfo} />
@@ -34,5 +41,10 @@ export default class className extends React.Component {
       <Route path={ROUTES.PASSWORD_CHANGE} component={PasswordChange} />
       <Route path={ROUTES.ACCOUNT} component={Account} />
     </div>
-  )
+    );
+  }
+    
+  
 }
+
+export default withAuthentication(Main);

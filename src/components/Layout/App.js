@@ -1,32 +1,40 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import '../../App.css';
-import Navbar from './Navbar';
+import Navigation from './Navigation';
 import Footer from './Footer';
 import Main from './Main'; 
 import { connect } from 'react-redux';
 import ParkLocations from '../location-data/ParkLocations';
 import StoreLocations from '../location-data/StoreLocations';
 //import axios from 'axios';
+import { withAuthentication } from '../Session';
+import { compose } from 'recompose';
+
 
 import {
   LOAD_PARKS,
   LOAD_STORES,
   UPDATE_USER,
-  /*TOGGLE_INFOWINDOW,
-  CURRENT_MARKER,
-  CURRENT_WINDOW*/
+  TOGGLE_MENU,
+  SHOW_ERROR,
+  SIGNUP_CHANGE,
+  SIGNIN_CHANGE,
+  CHANGE_PASSWORD,
+  FORGOT_PASSWORD
 } from '../../actions/actions';
 
 const mapStateToProps = state => {
   return {
     user: state.authReducer.user,
-    signedin: state.authReducer.signedin,
     parks: state.mapReducer.parks,
     stores: state.mapReducer.stores,
-    /*showinfowindow: state.mapReducer.showinfowindow,
-    selectedmarker: state.mapReducer.selectedmarker,
-    selectedwindow: state.mapReducer.selectedwindow*/
+    menu: state.menuReducer.menu,
+    error: state.authReducer.error,
+    signupdata: state.authReducer.signupdata,
+    signindata: state.authReducer.signindata,
+    pwforgot: state.authReducer.pwforgot,
+    pwchange: state.authReducer.pwchange
   }
 }
 
@@ -39,16 +47,25 @@ const mapDispatchToProps = dispatch => ({
   },
   updateUser: (userData) => {
     dispatch({type: UPDATE_USER, payload: userData})
-  }/*,
-  toggleInfoWindow: (bool) => {
-    dispatch({type: TOGGLE_INFOWINDOW, payload: bool})
   },
-  currentMarker: (markerData) => {
-    dispatch({type: CURRENT_MARKER, payload: markerData})
+  toggleMenu: () => {
+    dispatch({type: TOGGLE_MENU})
   },
-  currentWindow: (windowData) => {
-    dispatch({type: CURRENT_WINDOW, payload: windowData})
-  }*/
+  showError: (err) => {
+    dispatch({type: SHOW_ERROR, payload: err})
+  },
+  signupChange: (signupData) => {
+    dispatch({type: SIGNUP_CHANGE, payload: signupData})
+  },
+  signinChange: (signinData) => {
+    dispatch({type: SIGNIN_CHANGE, payload: signinData})
+  },
+  forgotPW: (emailData) => {
+    dispatch({type: FORGOT_PASSWORD, payload: emailData})
+  },
+  changePW: (passData) => {
+    dispatch({type: CHANGE_PASSWORD, payload: passData})
+  }
 });
 
 
@@ -66,18 +83,30 @@ class App extends React.Component {
     return (
     <BrowserRouter>
     <div id='app'>
-      <Navbar />   
+      <Navigation 
+        user={this.props.user}
+        updateUser={this.props.updateUser}
+        toggleMenu={this.props.toggleMenu}
+        menu={this.props.menu}
+        error={this.props.error}
+        showError={this.props.showError}
+        
+      />   
       <Main 
         parks={this.props.parks}
         user={this.props.user}
         stores={this.props.stores}
-
-        /*toggleInfoWindow={this.props.toggleInfoWindow}
-        showinfowindow={this.props.showinfowindow}
-        currentMarker={this.props.currentMarker}
-        selectedmarker={this.props.selectedmarker}
-        currentWindow={this.props.currentWindow}
-        selectedWindow={this.props.selectedwindow}*/
+        updateUser={this.props.updateUser}
+        error={this.props.error}
+        showError={this.props.showError}
+        signupChange={this.props.signupChange}
+        signinChange={this.props.signinChange}
+        signupdata={this.props.signupdata}
+        signindata={this.props.signindata}
+        pwforgot={this.props.pwforgot}
+        forgotPW={this.props.forgotPW}
+        pwchange={this.props.pwchange}
+        changePW={this.props.changePW}
       />
       <Footer />
     </div>
@@ -87,4 +116,4 @@ class App extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default compose(connect(mapStateToProps, mapDispatchToProps), withAuthentication)(App);

@@ -1,26 +1,20 @@
 import React from 'react';
-
 import AuthUserContext from './context';
 import { withFirebase } from '../Firebase';
 
 const withAuthentication = Component => {
   class WithAuthentication extends React.Component {
-    constructor(props) {
-      super(props);
-
-      this.state = {
-        authUser: null,
-      };
-    }
 
     componentDidMount() {
+      
       this.listener = this.props.firebase.auth.onAuthStateChanged(
         authUser => {
           authUser
-            ? this.setState({ authUser })
-            : this.setState({ authUser: null });
-        },
+            ? this.props.updateUser( authUser ) 
+            : this.props.updateUser(null)
+        }, 
       );
+      
     }
 
     componentWillUnmount() {
@@ -28,8 +22,9 @@ const withAuthentication = Component => {
     }
 
     render() {
+      console.log('withAuth ', this.props.error)
       return (
-        <AuthUserContext.Provider value={this.state.authUser}>
+        <AuthUserContext.Provider value={this.props.user}>
           <Component {...this.props} />
         </AuthUserContext.Provider>
       );

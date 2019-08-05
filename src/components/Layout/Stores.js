@@ -14,7 +14,6 @@ export default class Stores extends React.Component {
               <div className='card-body card-main-body'>
               <div className='card-text-seperator'>
                 <h5 className='card-title card-main-title'>{el.brand}</h5>
-                
                 <p className='card-text card-main-text'>{el.address}</p>
                 </div>
                 <a href={el.website} className='btn paw-button' rel='noopener noreferrer' target='_blank'>Info</a>
@@ -28,7 +27,7 @@ export default class Stores extends React.Component {
        <h1 className='headline' >Atlanta Dog Stores</h1>
        <div id='map-placement'>
        <MapContainer
-        id="myMap"
+        id='myMap'
         options={{
           center: { lat: 33.8884544, lng: -84.3842454 },
           zoom: 8.4

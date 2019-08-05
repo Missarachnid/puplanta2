@@ -1,84 +1,92 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-
 import { SignUpLink } from './SignUp';
 import { PasswordForgetLink } from './PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../Routes/Routes';
 
-const SignInPage = () => (
-  <div  className='jumbotron forms-format' id='sign-in-page'>
-    <h1>Sign In</h1>
-    <SignInForm />
-    <PasswordForgetLink />
-    <SignUpLink />
+export default class SignInPage extends React.Component {
+  render = () => (
+    <div  className='jumbotron forms-format' id='sign-in-page'>
+      <h1>Sign In</h1>
+      <SignInForm 
+      signinChange={this.props.signinChange} 
+      signindata={this.props.signindata}
+      showError={this.props.showError}
+      error={this.props.error}
+      />
+      <PasswordForgetLink />
+      <SignUpLink />
   </div>
-);
+  )
+}
 
-const INITIAL_STATE = {
+const SIGNIN_STATE = {
   email: '',
-  password: '',
-  error: null,
+  password: ''
 };
 
 class SignInFormBase extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { ...INITIAL_STATE };
-  }
 
   onSubmit = event => {
-    const { email, password } = this.state;
+    //const { email, password } = this.state;
+    const email = this.props.signindata.email;
+    const password = this.props.signindata.password;
 
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
-        this.setState({ ...INITIAL_STATE });
+        console.log('inside sign in ', this.props);
+        this.props.showError(null);
+        this.props.signinChange({ ...SIGNIN_STATE });
         this.props.history.push(ROUTES.HOME);
       })
       .catch(error => {
-        this.setState({ error });
+        console.log('error ', error.message);
+        this.props.showError( error );
       });
 
     event.preventDefault();
   };
 
   onChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.props.signinChange({ ...this.props.signindata, [event.target.name]: event.target.value });
   };
 
   render() {
-    const { email, password, error } = this.state;
+    //console.log('sign in', this.props);
+    const email = this.props.signindata.email;
+    const password = this.props.signindata.password;
 
     const isInvalid = password === '' || email === '';
 
     return (
       <form onSubmit={this.onSubmit}>
         <input
-          name="email"
+          name='email'
           value={email}
           onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
+          type='text'
+          placeholder='Email Address'
           className='signin-spacer'
         />
         <br></br>
         <input
-          name="password"
+          name='password'
           value={password}
           onChange={this.onChange}
-          type="password"
-          placeholder="Password"
+          type='password'
+          placeholder='Password'
           className='signin-spacer'
         />
         <br></br>
-        <button disabled={isInvalid} type="submit" className='signin-spacer form-button'>
+        <button disabled={isInvalid} type='submit' className='signin-spacer form-button'>
           Sign In
         </button>
-
-        {error && <p>{error.message}</p>}
+        <p>
+        {this.props.error ? this.props.error.message : null}
+        </p>
       </form>
     );
   }
@@ -88,7 +96,5 @@ const SignInForm = compose(
   withRouter,
   withFirebase,
 )(SignInFormBase);
-
-export default SignInPage;
 
 export { SignInForm };

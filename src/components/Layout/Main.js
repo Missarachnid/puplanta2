@@ -9,17 +9,14 @@ import Account from './Account';
 import SignIn from './SignIn';
 import SignOut from './SignOut';
 import PasswordForgetPage from './PasswordForget';
-import PasswordChange from './PasswordChange';
+//import PasswordChange from './PasswordChange';
 import SignUpPage from './SignUp';
 import Park from './Park';
 import StoreInfo from './StoreInfo';
-import { withAuthentication } from '../Session';
 
 class Main extends React.Component {
-  
 
   render = () => {
-    console.log('inside Main ', this.props);
     return (
       <div className='container' id='main'>
       <Route exact path={ROUTES.HOME} component={Home} />
@@ -27,28 +24,54 @@ class Main extends React.Component {
       <Route path={ROUTES.PARKS} render={props => 
         <Parks 
         parks={this.props.parks}
-        user={this.props.user}
+        authUser={this.props.authUser}
         />}
       />
       <Route path={ROUTES.PARK_ID} component={Park} />
       <Route path={ROUTES.STORES} render={props => 
       <Stores
-        user={this.props.user}
+        authUser={this.props.authUser}
         stores={this.props.stores}
+        
         />}
         />
       <Route path={ROUTES.STORE_ID} component={StoreInfo} />
-      <Route path={ROUTES.SIGN_IN} component={SignIn} />
+      <Route path={ROUTES.SIGN_IN} render={props => 
+      <SignIn 
+        signinChange={this.props.signinChange} 
+        signindata={this.props.signindata}
+        showError={this.props.showError}
+        error={this.props.error}
+      />} 
+      />
       <Route path={ROUTES.SIGN_OUT} component={SignOut} />
-      <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-      <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-      <Route path={ROUTES.PASSWORD_CHANGE} component={PasswordChange} />
-      <Route path={ROUTES.ACCOUNT} component={Account} />
+      <Route path={ROUTES.SIGN_UP} render={props => 
+      <SignUpPage 
+      signupChange={this.props.signupChange}
+      signupdata={this.props.signupdata}
+      showError={this.props.showError}
+      error={this.props.error}
+      />} />
+      <Route path={ROUTES.PASSWORD_FORGET} 
+      render={props => 
+      <PasswordForgetPage 
+        pwforgot={this.props.pwforgot}
+        forgotPW={this.props.forgotPW}
+        showError={this.props.showError}
+        error={this.props.error}
+      /> } />
+      <Route path={ROUTES.ACCOUNT} render={props => 
+      <Account
+        user={this.props.user}
+        pwchange={this.props.pwchange}
+        changePW={this.props.changePW}
+        showError={this.props.showError}
+        error={this.props.error}
+        />} />
     </div>
     );
   }
     
-  
 }
 
-export default withAuthentication(Main);
+export default Main;

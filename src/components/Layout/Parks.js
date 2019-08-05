@@ -28,7 +28,7 @@ export default class Parks extends React.Component {
         <h1 className='headline'>Atlanta Dog Parks</h1>
         <div id='map-placement'>
         <MapContainer
-        id="myMap"
+        id='myMap'
         options={{
           center: { lat: 33.8884544, lng: -84.3842454 },
           zoom: 9.4
@@ -66,10 +66,10 @@ export default class Parks extends React.Component {
                 let infoItem = windowArr.shift();
                 infoItem.close(map);
                 infoWindow.open(map);
-                console.log('AHa', windowArr);
+                //console.log('AHa', windowArr);
               } else {
                 infoWindow.open(map)
-                console.log('Arr issue', windowArr);
+                //console.log('Arr issue', windowArr);
               }
             }
 

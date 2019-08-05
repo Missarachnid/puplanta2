@@ -20,7 +20,7 @@ const About = () => {
               <h2 className='about-text'>The code for this site</h2>
               <p>This is a project in my portfolio as a JavaScript developer.</p>
               <button className='btn' id='github-link'>
-              <a href='https://github.com/Missarachnid/puplanta2' target='_blank' rel="noopener noreferrer">
+              <a href='https://github.com/Missarachnid/puplanta2' target='_blank' rel='noopener noreferrer'>
                 <img src={GitHub} alt='a GitHub logo'/>
               </a>
               </button>
@@ -59,6 +59,5 @@ const About = () => {
         </div>
     </div>
   );
-  
 }
 export default About;

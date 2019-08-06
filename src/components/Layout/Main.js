@@ -27,34 +27,37 @@ class Main extends React.Component {
       <Route path={ROUTES.PARKS} render={props => 
         <Parks 
         parks={this.props.parks}
-        authUser={this.props.authUser}
+        user={this.props.user}
         />}
       />
-      <Route path={ROUTES.PARK_ID} /*component={ParkInfo}*/ render={props => <ParkInfo parks={this.props.parks} />} />
+      <Route path={ROUTES.PARK_ID} /*component={ParkInfo}*/ render={props => 
+        <ParkInfo parks={this.props.parks} />} />
       <Route path={ROUTES.STORES} render={props => 
-      <Stores
-        authUser={this.props.authUser}
-        stores={this.props.stores}
-        
-        />}
+        <Stores
+          user={this.props.user}
+          stores={this.props.stores}
+          
+          />}
         />
-      <Route path={ROUTES.STORE_ID} component={StoreInfo} />
+      <Route path={ROUTES.STORE_ID} render={props => 
+        <StoreInfo stores={this.props.stores} />} />
+        
       <Route path={ROUTES.SIGN_IN} render={props => 
-      <SignIn 
-        signinChange={this.props.signinChange} 
-        signindata={this.props.signindata}
-        showError={this.props.showError}
-        error={this.props.error}
-      />} 
+        <SignIn 
+          signinChange={this.props.signinChange} 
+          signindata={this.props.signindata}
+          showError={this.props.showError}
+          error={this.props.error}
+        />} 
       />
       <Route path={ROUTES.SIGN_OUT} component={SignOut} />
       <Route path={ROUTES.SIGN_UP} render={props => 
-      <SignUpPage 
-      signupChange={this.props.signupChange}
-      signupdata={this.props.signupdata}
-      showError={this.props.showError}
-      error={this.props.error}
-      />} />
+        <SignUpPage 
+        signupChange={this.props.signupChange}
+        signupdata={this.props.signupdata}
+        showError={this.props.showError}
+        error={this.props.error}
+        />} />
       <Route path={ROUTES.PASSWORD_FORGET} 
       render={props => 
       <PasswordForgetPage 

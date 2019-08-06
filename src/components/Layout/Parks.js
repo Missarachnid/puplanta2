@@ -37,7 +37,7 @@ import { withRouter } from 'react-router-dom';
       </div>
     ));
 
-    //console.log('parks ', this.props.parks)
+  //console.log('parks ', this.props)
     return(
       <div id='parks'>
         <h1 className='headline'>Atlanta Dog Parks</h1>

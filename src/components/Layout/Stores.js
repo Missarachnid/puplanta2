@@ -3,32 +3,38 @@ import MapContainer from './MapContainer';
 import { render } from 'react-dom';
 import InfoWindow from './InfoWindow';
 import pawUp from '../../img/paws-up.svg';
-import pawDown from '../../img/paws-down.svg'
+import pawDown from '../../img/paws-down.svg';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-export default class Stores extends React.Component {
+class Stores extends React.Component {
  
   render = () => {
         /* This dynamically loads cards from the park locations data */
         let stores = this.props.stores.map( el => (
           <div className='col-sm-12 col-md-6 col-lg-4' key={el.id}>
             <div className='card card-stores' >
-              <img src={el.image} className='card-img-top card-stores-image rounded' alt={`An logo for ${el.title}.` } />
               <div className='card-body card-main-body'>
+              <Link to={`/store/${el.id}`}>
+              <img src={el.image} className='card-img-top card-stores-image rounded' alt={`An logo for ${el.title}.` } />
               <div className='card-text-seperator'>
                 <h5 className='card-title card-main-title'>{el.brand}</h5>
                 <p className='card-text card-main-text'>{el.address}</p>
                 </div>
                 <div className='paws'>
-                  <img src={pawUp} className='paws-img' alt='A paw pointing upward, like a thumbs up'/><span>120</span>
+                  <img src={pawUp} className='paws-img' alt='A paw pointing upward, like a thumbs up'/><span>{el.votes.up}</span>
                   <span className='paw-seperator'></span>
-                  <img src={pawDown} className='paws-img' alt='A paw pointing downward, like a thumb up'/><span>120</span>
+                  <img src={pawDown} className='paws-img' alt='A paw pointing downward, like a thumb up'/><span>{el.votes.down}</span>
                 </div>
-                <a href={el.website} className='btn paw-button' rel='noopener noreferrer' target='_blank'>Info</a>
+                </Link>
+                <button className='paw-button'>
+                <a href={el.website} rel='noopener noreferrer' target='_blank'>Info</a>
+                </button>
               </div>
             </div>
           </div>
         ));
-      
+      console.log(" stores props", this.props)
     return(
     <div id='stores'>
        <h1 className='headline' >Atlanta Dog Stores</h1>
@@ -100,3 +106,5 @@ export default class Stores extends React.Component {
     )
   }
 }
+
+export default withRouter(Stores);

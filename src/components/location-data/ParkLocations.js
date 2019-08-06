@@ -8,7 +8,11 @@ const ParkLocations =
       'address': '4758 S Old Peachtree Rd, Peachtree Corners, GA 30071',
         'lat': 33.9691623,
         'lng': -84.2015879,
-      'id': '0'
+      'id': 'p0',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Clear_Creek_with_new_dog_park_in_background_Piedmont_Park_Atlanta.jpg/220px-Clear_Creek_with_new_dog_park_in_background_Piedmont_Park_Atlanta.jpg',
@@ -17,7 +21,11 @@ const ParkLocations =
       'address': '2000 Lakewood Ave SE, Atlanta, GA 30315',
       'lat': 33.701731,
       'lng': -84.38558,
-      'id': '1'
+      'id': 'p1',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'https://dallasga.gov/wp-content/uploads/2017/06/dog-6.jpg',
@@ -26,7 +34,11 @@ const ParkLocations =
       'address': '196 Lester Dr, Dallas, GA 30132',
       'lat': 33.921653,
       'lng': -84.8343432,
-      'id': '2'
+      'id': 'p2',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     { 
       'image': 'https://atlantadecaturhomes.files.wordpress.com/2012/03/img_0202.jpg',
@@ -35,7 +47,11 @@ const ParkLocations =
       'address': 'Norris St, Decatur, GA 30030',
       'lat': 33.7845,
       'lng': -84.29179999999997,
-      'id': '3'
+      'id': 'p3',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'http://www.sandyspringsga.gov/Home/ShowPublishedImage/374/635507054064530000',
@@ -44,7 +60,11 @@ const ParkLocations =
       'address': '100 Morgan Falls Road, Sandy Springs, GA 30350',   
       'lat': 33.964928,
       'lng': -84.382196,
-      'id': '4'
+      'id': 'p4',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'https://www.kennesaw-ga.gov/wp-content/uploads/2014/08/Plaza.png',
@@ -53,7 +73,11 @@ const ParkLocations =
       'address': '3140 Old 41 Hwy NW, Kennesaw, GA 30144',
       'lat': 34.0234,
       'lng': -84.6155,
-      'id': '5'
+      'id': 'p5',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'https://photos.bringfido.com/attractions/8/1/7/10718/10718_21772.jpg',
@@ -62,7 +86,11 @@ const ParkLocations =
       'address': '3150 Old Alabama Rd, Johns Creek, GA 30022',
       'lat': 34.0210566,
       'lng': -84.2670552,
-      'id': '6'
+      'id': 'p6',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'http://www.q100atlanta.com/wp-content/uploads/sites/214/2016/07/dogpark2014-01.jpg',
@@ -71,7 +99,11 @@ const ParkLocations =
       'address': '414 East Lake Dr, Decatur, GA 30030',
       'lat':  33.7596077,
       'lng': -84.3095249,
-      'id': '7'
+      'id': 'p7',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'http://www.mariettaga.gov/ImageRepository/Document?documentID=8375',
@@ -80,7 +112,11 @@ const ParkLocations =
       'address': '1055 Delaware Avenue SE, Atlanta, GA 30316',
       'lat': 33.7309646,
       'lng': -84.3531915,
-      'id': '8'
+      'id': 'p8',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'https://s3-media2.fl.yelpcdn.com/bphoto/KpI-WEUVQGf1itwCZamNyA/ls.jpg',
@@ -89,7 +125,11 @@ const ParkLocations =
       'address': '4951 Camp Dr, College Park, GA 30349',
       'lat': 33.6003225,
       'lng': -84.5510663,
-      'id': '9'
+      'id': 'p9',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'https://activerain.com/image_store/uploads/agents/pdenboer/files/Woofstock%20Sign.JPG',
@@ -98,7 +138,11 @@ const ParkLocations =
       'address': '150 Dupree Rd, Woodstock, GA 30188',
       'lat': 34.0969165,
       'lng': -84.529616,
-      'id': '10'
+      'id': 'p10',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'http://img.groundspeak.com/waymarking/display/03e78de5-fb0f-484d-946d-5f08f7b8cabb.jpg',
@@ -107,7 +151,11 @@ const ParkLocations =
       'address': 'N Jamestown Rd, Decatur, GA 30033',
       'lat': 33.810901,
       'lng': -84.300787,
-      'id': '11'
+      'id': 'p11',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'http://www.q100atlanta.com/wp-content/uploads/sites/214/2016/07/Lewis3.jpg',
@@ -116,7 +164,11 @@ const ParkLocations =
       'address': '475 Campbell Hill St NW, Marietta, GA 30060',
       'lat': 33.9634061,
       'lng': -84.5519903,
-      'id': '12'
+      'id': 'p12',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'https://1kdg3z13fxaicpy863td6286-wpengine.netdna-ssl.com/wp-content/uploads/2017/01/Things-to-do-dog-park.jpg',
@@ -125,7 +177,11 @@ const ParkLocations =
       'address': 'Park Dr NE, Atlanta, GA 30309',
       'lat': 33.785478,
       'lng': -84.365906,
-      'id': '13'
+      'id': 'p13',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'https://atlantaintownpaper.com/wp-content/uploads/2015/03/DSC_0460-450x299.jpg',
@@ -134,7 +190,11 @@ const ParkLocations =
       'address': '523 Highland Ave NE, Atlanta, GA 30312',
       'lat': 33.761138,
       'lng': -84.3700886,
-      'id': '14'
+      'id': 'p14',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'https://s3.amazonaws.com/gs-waymarking-images/e294e0c4-646d-4949-a409-bf66020cab51_d.jpg',
@@ -143,7 +203,11 @@ const ParkLocations =
       'address': 'Pitner Rd NW, Acworth, GA 30101',
       'lat': 34.000929,
       'lng': -84.716517,
-      'id': '15'
+      'id': 'p15',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     },
     {
       'image': 'https://www.dogjaunt.com/files/2011/06/IMG_20110426_172721.jpg',
@@ -152,7 +216,11 @@ const ParkLocations =
       'address': '6000 N Terminal Pkwy, Atlanta, GA 30337',
       'lat': 33.6406578,
       'lng': -84.4474184,
-      'id': '16'
+      'id': 'p16',
+      'votes': {
+        'up': 0,
+        'down': 0
+      }
     }
   ];
 export default ParkLocations;

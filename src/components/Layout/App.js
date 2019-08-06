@@ -5,13 +5,9 @@ import Navigation from './Navigation';
 import Footer from './Footer';
 import Main from './Main'; 
 import { connect } from 'react-redux';
-import ParkLocations from '../location-data/ParkLocations';
-import StoreLocations from '../location-data/StoreLocations';
-//import axios from 'axios';
 import { withAuthentication } from '../Session';
 import { compose } from 'recompose';
-
-
+import { withFirebase } from '../Firebase';
 import {
   LOAD_PARKS,
   LOAD_STORES,
@@ -71,11 +67,30 @@ const mapDispatchToProps = dispatch => ({
 
 class App extends React.Component {
   componentWillMount(){
-    
-    /* After Api is built, axios will be used to gather the data and the the store will be updated */
-    this.props.loadParks(ParkLocations);
-    this.props.loadStores(StoreLocations);
-   
+
+    let getParkData = () => {
+      let ref = this.props.firebase.parks();
+      ref.on('value', snapshot => {
+        const parkItems = snapshot.val();
+        //this.props.loadParks(Array(parkItems));
+        const parkArr = Object.keys(parkItems).map(i => parkItems[i]);
+        this.props.loadParks(parkArr);
+      });
+      //console.log('parkData');
+    }
+
+    let getStoreData = () => {
+      let ref = this.props.firebase.stores();
+      ref.on('value', snapshot => {
+        const storeItems = snapshot.val();
+        //this.props.loadParks(Array(parkItems));
+        const storeArr = Object.keys(storeItems).map(i => storeItems[i]);
+        this.props.loadStores(storeArr);
+      });
+      //console.log('storedata');
+    }
+    getParkData();
+    getStoreData();
   }
 
   render = () => {
@@ -116,4 +131,4 @@ class App extends React.Component {
   }
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), withAuthentication)(App);
+export default compose(connect(mapStateToProps, mapDispatchToProps), withAuthentication, withFirebase)(App);

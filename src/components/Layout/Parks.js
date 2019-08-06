@@ -2,27 +2,42 @@ import React from 'react';
 import MapContainer from './MapContainer';
 import { render } from 'react-dom';
 import InfoWindow from './InfoWindow'
+import pawUp from '../../img/paws-up.svg';
+import pawDown from '../../img/paws-down.svg';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-export default class Parks extends React.Component {
+ class Parks extends React.Component {
   
   render () {
     /* This dynamically loads cards from the park locations data */
+
     let parks = this.props.parks.map( el => (
-      <div className='col-sm-12 col-md-6 col-lg-4' key={el.id}>
-        <div className='card card-main' >
-          <img src={el.image} className='card-img-top card-main-image rounded' alt={`An image of ${el.title}.` } />
+      
+      <div className='col-sm-12 col-md-6 col-lg-4' key={el.id} >
+        <div className='card card-main'>
           <div className='card-body card-main-body'>
+          <Link to={`/park/${el.id}`}>
+          <img src={el.image} className='card-img-top card-main-image rounded' alt={`${el.title}.` } />
           <div className='card-text-seperator'>
             <h5 className='card-title card-main-title'>{el.title}</h5>
-            
             <p className='card-text card-main-text'>{el.address}</p>
             </div>
-            <a href={el.website} className='btn paw-button' rel='noopener noreferrer' target='_blank'>Info</a>
+            <div className='paws'>
+              <img src={pawUp} className='paws-img' alt='A paw pointing upwards like a thumbs up'/>
+              <span>{el.votes.up}</span>
+              <span className='paw-seperator'></span>
+              <img src={pawDown} className='paws-img'alt='A paw pointing downwards like a thumbs down'/>
+              <span>{el.votes.down}</span>
+            </div>
+            </Link>
+            <button className='paw-button'><a href={el.website} rel='noopener noreferrer' target='_blank'>Info</a></button>
           </div>
         </div>
       </div>
     ));
-    
+
+    //console.log('parks ', this.props.parks)
     return(
       <div id='parks'>
         <h1 className='headline'>Atlanta Dog Parks</h1>
@@ -38,6 +53,7 @@ export default class Parks extends React.Component {
           let windowArr = [];
 
           this.props.parks.map((el) => {
+            //console.log('el ', el);
             let temp = el;
             let marker = new window.google.maps.Marker({
               position: { lat: el.lat, lng: el.lng },
@@ -51,7 +67,7 @@ export default class Parks extends React.Component {
 
               const infoWindow = new window.google.maps.InfoWindow({
                   content: '<div id="infoWindow" />',
-                  position: { lat: e.latLng.lat(), lng: e.latLng.lng() },
+                  position: { lat: e.lat.lat(), lng: e.Lng.lng() },
                   title: e.title,
                   maxWidth: 280
               });
@@ -66,17 +82,16 @@ export default class Parks extends React.Component {
                 let infoItem = windowArr.shift();
                 infoItem.close(map);
                 infoWindow.open(map);
-                //console.log('AHa', windowArr);
+                console.log('AHa', windowArr);
               } else {
                 infoWindow.open(map)
-                //console.log('Arr issue', windowArr);
+                console.log('Arr issue', windowArr);
               }
             }
 
             marker.addListener('click', e => {
                 createInfoWindow(e, map);
             });
-            
             return marker;
           });
 
@@ -96,3 +111,4 @@ export default class Parks extends React.Component {
 }
 
 
+export default withRouter(Parks);

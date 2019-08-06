@@ -12,6 +12,7 @@
 #main {
   height: 100%;
   padding: 40px;
+  margin-bottom: 80px;
 
 }
 
@@ -65,6 +66,7 @@ box-shadow: 0 1px 5px 1px rgba(135, 0, 0, 0.3);
 
 
 /* About */
+#park-item,
 #account,
 #about {
   background-color: white;
@@ -143,21 +145,30 @@ input {
 }
 
 .card-main {
-  height: 340px;
-  max-width: 300px;
-  
+  height: 368px;
+  max-width: 300px; 
   border: none;
   border: 1px solid lightgray;
   box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);
   margin: 20px auto 10px auto;
 }
 
+.card-main a {
+  color: black;
+}
+
+.card-main a:hover {
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+
 .card-main-image {
  height: 120px;
- width: 120px;
+ max-width: 120px;
  background-size: cover;
- margin: 20px auto 10px auto;
- border: 3px solid #ff9966;
+ margin: 0 auto 20px auto;
+ border: 3px solid #870000;
  box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);
 }
 
@@ -165,14 +176,17 @@ input {
   background: url('./img/paws.svg') center no-repeat;
   background-size: contain;
   width: 60px;
+  border: 1px ridge #870000;
+  border-radius: 4px;
   box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);
-  font-size: 1.2em;
+  font-size: 1.5em;
   margin-top: 10px;
 }
 
 .card-text-seperator {
   height: 90px;
 }
+
 /*  Map */
 #map-placement {
   height: 440px;
@@ -213,7 +227,7 @@ input {
   max-width: 100px;
   background-size: cover;
   box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);
-  margin: 40px auto 20px auto;
+  margin: 20px auto 10px auto;
 }
 .card-stores {
   height: 320px;
@@ -222,4 +236,45 @@ input {
   border: 1px solid lightgray;
   box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);
   margin: 20px auto 10px auto;
+}
+
+/* Votes */
+.paws-img {
+  height: 20px;
+  margin: 5px 10px;
+  width: auto;
+}
+
+.paw-seperator {
+  margin: 20px;
+}
+
+.paws {
+  padding: 10px;
+}
+
+.paws-vote {
+  height: 60px;
+  width: auto;
+  margin: 20px;
+}
+
+#park-item-image {
+  height: 200px;
+  box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  border: 2px solid #870000;
+  margin-bottom: 20px;
+}
+
+.paws-park-item {
+  margin: 20px;
+}
+
+.vote {
+  border: 2px solid #870000;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.3);
+  padding: 0;
+  margin-top: 20px;
 }

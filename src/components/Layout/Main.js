@@ -1,6 +1,7 @@
 import React from 'react';
 import * as ROUTES from '../Routes/Routes';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
 import Home from './Home';
 import About from './About';
 import Stores from './Stores';
@@ -11,14 +12,16 @@ import SignOut from './SignOut';
 import PasswordForgetPage from './PasswordForget';
 //import PasswordChange from './PasswordChange';
 import SignUpPage from './SignUp';
-import Park from './Park';
+import ParkInfo from './ParkInfo';
 import StoreInfo from './StoreInfo';
 
 class Main extends React.Component {
 
   render = () => {
+    //console.log('main', this.props);
     return (
       <div className='container' id='main'>
+        <Switch>
       <Route exact path={ROUTES.HOME} component={Home} />
       <Route path={ROUTES.ABOUT} component={About} />
       <Route path={ROUTES.PARKS} render={props => 
@@ -27,7 +30,7 @@ class Main extends React.Component {
         authUser={this.props.authUser}
         />}
       />
-      <Route path={ROUTES.PARK_ID} component={Park} />
+      <Route path={ROUTES.PARK_ID} /*component={ParkInfo}*/ render={props => <ParkInfo parks={this.props.parks} />} />
       <Route path={ROUTES.STORES} render={props => 
       <Stores
         authUser={this.props.authUser}
@@ -68,10 +71,11 @@ class Main extends React.Component {
         showError={this.props.showError}
         error={this.props.error}
         />} />
+        </Switch>
     </div>
     );
   }
     
 }
 
-export default Main;
+export default withRouter(Main);

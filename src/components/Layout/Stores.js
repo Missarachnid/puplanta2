@@ -1,7 +1,9 @@
 import React from 'react';
 import MapContainer from './MapContainer';
 import { render } from 'react-dom';
-import InfoWindow from './InfoWindow'
+import InfoWindow from './InfoWindow';
+import pawUp from '../../img/paws-up.svg';
+import pawDown from '../../img/paws-down.svg'
 
 export default class Stores extends React.Component {
  
@@ -15,6 +17,11 @@ export default class Stores extends React.Component {
               <div className='card-text-seperator'>
                 <h5 className='card-title card-main-title'>{el.brand}</h5>
                 <p className='card-text card-main-text'>{el.address}</p>
+                </div>
+                <div className='paws'>
+                  <img src={pawUp} className='paws-img' alt='A paw pointing upward, like a thumbs up'/><span>120</span>
+                  <span className='paw-seperator'></span>
+                  <img src={pawDown} className='paws-img' alt='A paw pointing downward, like a thumb up'/><span>120</span>
                 </div>
                 <a href={el.website} className='btn paw-button' rel='noopener noreferrer' target='_blank'>Info</a>
               </div>

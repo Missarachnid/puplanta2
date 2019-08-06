@@ -35,8 +35,15 @@ class Firebase {
     this.auth.currentUser.updatePassword(password);
   /*  User api */
   user = uid => this.db.ref(`users/${uid}`);
-
   users = () => this.db.ref('users');
+
+  /* Store api */
+  store = uid => this.db.ref(`stores/${uid}`);
+  stores = () => this.db.ref('stores');
+
+  /* Parks api */
+  park = uid => this.db.ref(`parks/${uid}`)
+  parks = () => this.db.ref('parks');
 };
 
 export default Firebase;

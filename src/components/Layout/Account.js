@@ -1,6 +1,8 @@
 import React from 'react';
 import { AuthUserContext, withAuthorization } from '../Session';
 import PasswordChangeForm from './PasswordChange';
+import { Link } from 'react-router-dom';
+import Privacy from './Privacy';
 
 class Account extends React.Component {
 
@@ -19,6 +21,7 @@ class Account extends React.Component {
           error={this.props.error}
         />
         <div>
+        <Link to={Privacy}>Privacy Policy</Link>
         <p>Please report any issues to admin@puplanta.awsapps.com</p>
       </div>
       </div>

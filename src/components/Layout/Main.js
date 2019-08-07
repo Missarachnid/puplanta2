@@ -9,10 +9,10 @@ import Parks from './Parks';
 import Account from './Account';
 import SignIn from './SignIn';
 import PasswordForgetPage from './PasswordForget';
-//import PasswordChange from './PasswordChange';
 import SignUpPage from './SignUp';
 import ParkInfo from './ParkInfo';
 import StoreInfo from './StoreInfo';
+import Privacy from './Privacy';
 
 class Main extends React.Component {
 
@@ -58,6 +58,7 @@ class Main extends React.Component {
         showError={this.props.showError}
         error={this.props.error}
         />} />
+      <Route path={ROUTES.PRIVACY} component={Privacy} />
       <Route path={ROUTES.PASSWORD_FORGET} 
       render={props => 
       <PasswordForgetPage 

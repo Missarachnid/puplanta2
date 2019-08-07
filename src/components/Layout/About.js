@@ -8,32 +8,28 @@ const About = () => {
   return (
     <div>
         <div id='about'>
-
           <div>
-            <h1>What is this site for?</h1>
+            <h1 className='headline'>What is this site for?</h1>
             <p>
               This site has listings of dog parks and stores in the greater Atlanta area. Anyone can view the listings. If you create an account, you can vote on locations that you have visited. Locations are rated with a "Paws Up" or "Paws Down". 
             </p>
             </div>
-
             <div className='seperator'>
               <h2 className='about-text'>The code for this site</h2>
-              <p>This is a project in my portfolio as a JavaScript developer.</p>
+              <p>This is a project in my portfolio as a JavaScript developer. I am a 'dog person' I decided to make this site to show my skillset. Please checkout the code for this site on my GitHub account.</p>
+              <p>Please note I will have to put limits on my google maps usage, due to costs. If you encounter any issues please contact me.</p>
               <button className='btn' id='github-link'>
               <a href='https://github.com/Missarachnid/puplanta2' target='_blank' rel='noopener noreferrer'>
                 <img src={GitHub} alt='a GitHub logo'/>
               </a>
               </button>
               </div>
-
             <div className='seperator'>
               <h3 className='about-text'>Paying the Pet Tax</h3>
-              <p>I have 3 puppers. Aren't they beautiful?</p>
+              <p>These are my 3 best friends. They keep my life interesting.</p>
             </div>
-
             <div className='seperator'>
             <div className='row'>
-
               <div className='col-md-4'>
                 <div className='card dog-card'>
                 <p className='card-title'>Laika</p>
@@ -52,10 +48,8 @@ const About = () => {
                   <img src={NimbusImg} className='card-image dog-img' alt='A fluffy black and gray Pomearanian standing while the wind blows through his hair'/>
                 </div>
               </div>
-
               </div>
             </div>
-             
         </div>
     </div>
   );

@@ -23,8 +23,11 @@
 
 .headline {
   margin-bottom: 40px;
+  font-size: 2.6rem;
 }
 
+#privacy,
+#home,
 #sign-up-page,
 #sign-in-page,
 #park-item,
@@ -53,6 +56,10 @@ box-shadow: 0 1px 5px 1px rgba(135, 0, 0, 0.3);
 .nav-link {
   color: black;
 }
+.nav-link:hover, .nav-link:focus {
+  color: #870000;
+  font-weight: bold;
+}
 
 /*footer*/
 #footer {
@@ -72,6 +79,19 @@ box-shadow: 0 1px 5px 1px rgba(135, 0, 0, 0.3);
 #footer a {
   color: black;
 }
+
+/* Home */
+#georgia {
+  max-width: 300px;
+}
+
+#pup-home {
+  margin: 0;
+}
+.pup-text {
+  padding: auto;
+}
+
 
 
 /* About */
@@ -299,4 +319,10 @@ input {
   #sign-out {
     padding-left: 20px;
   }
+ }
+
+ /* Privacy*/
+
+ #privacy p, #privacy li {
+   text-align: left;
  }

@@ -3,17 +3,19 @@ import { Link, withRouter } from 'react-router-dom';
 import {  compose  } from 'recompose';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../Routes/Routes';
+import Privacy from './Privacy';
 
 export default class SignUpPage extends React.Component {
  
   render = () => (
     <div>
       <div className='jumbotron forms-format' id='sign-up-page'>
-        <h1>SignUp</h1>
+        <h1 className='headline'>SignUp</h1>
         <SignUpForm 
         signupChange={this.props.signupChange}
         signupdata={this.props.signupdata} error={this.props.error}
         showError={this.props.showError}/>
+        <Link to={ROUTES.PRIVACY}>Privacy Policy</Link>
       </div>
     </div>
   )

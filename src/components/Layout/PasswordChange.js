@@ -9,7 +9,6 @@ const pwchange_state = {
 class PasswordChangeForm extends Component {
  
   onSubmit = event => {
-    console.log('in onSubmit ', this.props.error.message)
     const pass = this.props.pwchange.passwordone
 
     this.props.firebase
@@ -30,7 +29,6 @@ class PasswordChangeForm extends Component {
   };
 
   render() {
-    //console.log('password change ', this.props);
     const passwordone = this.props.pwchange.passwordone;
     const passwordtwo = this.props.pwchange.passwordtwo;
 

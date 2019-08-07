@@ -22,7 +22,6 @@ const withAuthentication = Component => {
     }
 
     render() {
-      //console.log('withAuth ', this.props.error)
       return (
         <AuthUserContext.Provider value={this.props.user}>
           <Component {...this.props} />

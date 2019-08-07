@@ -72,29 +72,24 @@ class App extends React.Component {
       let ref = this.props.firebase.parks();
       ref.on('value', snapshot => {
         const parkItems = snapshot.val();
-        //this.props.loadParks(Array(parkItems));
         const parkArr = Object.keys(parkItems).map(i => parkItems[i]);
         this.props.loadParks(parkArr);
       });
-      //console.log('parkData');
     }
 
     let getStoreData = () => {
       let ref = this.props.firebase.stores();
       ref.on('value', snapshot => {
         const storeItems = snapshot.val();
-        //this.props.loadParks(Array(parkItems));
         const storeArr = Object.keys(storeItems).map(i => storeItems[i]);
         this.props.loadStores(storeArr);
       });
-      //console.log('storedata');
     }
     getParkData();
     getStoreData();
   }
 
   render = () => {
-    //console.log('props in render ', this.props);
     return (
     <BrowserRouter>
     <div id='app'>

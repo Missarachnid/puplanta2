@@ -5,7 +5,6 @@ import * as ROUTES from '../Routes/Routes';
 
 export default class PasswordForgetPage extends React.Component {
   render = () => {
-    //console.log('inside pwforget ', this.props);
     return (
     <div>
       <div>
@@ -48,7 +47,6 @@ class PasswordForgetFormBase extends Component {
   };
 
   render() {
-    //console.log('in render ', this.props);
     const email = this.props.pwforgot.email;
 
     const isInvalid = email === '';

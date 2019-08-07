@@ -11,7 +11,6 @@ class Store extends React.Component {
   render = () => {
 
     var temp;
-
     /* retrieve data for store item clicked */
     for(let i = 0; i < this.props.stores.length; i++){
       if(this.props.stores[i].id === this.props.match.params.id){
@@ -51,7 +50,6 @@ class Store extends React.Component {
       this.props.history.push(ROUTES.STORES);
     }
 
-   //console.log('park ', this.props);
     return (
       <div className='jumbotron' id='park-item'>
         <h1 className='headline'>{temp ? (temp.title) : null}</h1>

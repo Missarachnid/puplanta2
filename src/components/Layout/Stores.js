@@ -34,7 +34,7 @@ class Stores extends React.Component {
             </div>
           </div>
         ));
-      console.log(" stores props", this.props)
+     
     return(
     <div id='stores'>
        <h1 className='headline' >Atlanta Dog Stores</h1>
@@ -78,10 +78,8 @@ class Stores extends React.Component {
                 let infoItem = windowArr.shift();
                 infoItem.close(map);
                 infoWindow.open(map);
-                console.log('AHa', windowArr);
               } else {
                 infoWindow.open(map)
-                console.log('Arr issue', windowArr);
               }
             }
 

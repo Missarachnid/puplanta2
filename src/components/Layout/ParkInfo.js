@@ -9,9 +9,7 @@ import { withFirebase } from '../Firebase';
 
 class Park extends React.Component {
   render = () => {
-
     var temp;
-
     /* retrieve data for park item clicked */
     for(let i = 0; i < this.props.parks.length; i++){
       if(this.props.parks[i].id === this.props.match.params.id){
@@ -51,7 +49,6 @@ class Park extends React.Component {
       this.props.history.push(ROUTES.PARKS);
     }
 
-   //console.log('park ', this.props);
     return (
       <div className='jumbotron' id='park-item'>
         <h1 className='headline'>{temp ? (temp.title) : null}</h1>

@@ -7,7 +7,6 @@ import Privacy from './Privacy';
 class Account extends React.Component {
 
   render = () => {
-    console.log('Account ', this.props);
     return (
     <AuthUserContext.Consumer>
       {authUser => (

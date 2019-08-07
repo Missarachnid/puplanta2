@@ -3,7 +3,6 @@ import { Link, withRouter } from 'react-router-dom';
 import {  compose  } from 'recompose';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../Routes/Routes';
-import Privacy from './Privacy';
 
 export default class SignUpPage extends React.Component {
  
@@ -39,7 +38,6 @@ class SignUpFormBase extends Component {
       .doCreateUserWithEmailAndPassword(email, passwordone)
       .then(authUser => {
         // Create a user in your Firebase realtime database
-       //console.log('in signup ', this.props.firebase.user.set);
         return this.props.firebase
           .user(authUser.user.uid)
           .set({
@@ -64,7 +62,6 @@ class SignUpFormBase extends Component {
   };
 
   render() {
-    console.log('In signup ', this.props);
     const username = this.props.signupdata.username;
     const email = this.props.signupdata.email;
     const passwordone = this.props.signupdata.passwordone;

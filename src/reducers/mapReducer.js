@@ -1,4 +1,4 @@
-import { /*TOGGLE_INFOWINDOW, CURRENT_MARKER,*/ LOAD_PARKS, LOAD_STORES, /*CURRENT_WINDOW*/ } from '../actions/actions';
+import { LOAD_PARKS, LOAD_STORES } from '../actions/actions';
 import initialState from './initialState';
 
 const mapReducer = (state = initialState, action) => {
@@ -15,24 +15,6 @@ const mapReducer = (state = initialState, action) => {
         stores: action.payload
       }
     }
-    /*case TOGGLE_INFOWINDOW: {
-      return {
-        ...state,
-        showinfowindow: action.payload
-      }
-    }
-    case CURRENT_MARKER : {
-      return {
-        ...state,
-        selectedmarker: action.payload
-      }
-    }
-    case CURRENT_WINDOW : {
-      return {
-        ...state,
-        currentwindow: action.payload
-      }
-    }*/
     default:
       return state
   }

@@ -30,20 +30,17 @@ const SIGNIN_STATE = {
 class SignInFormBase extends Component {
 
   onSubmit = event => {
-    //const { email, password } = this.state;
     const email = this.props.signindata.email;
     const password = this.props.signindata.password;
 
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
-        console.log('inside sign in ', this.props);
         this.props.showError(null);
         this.props.signinChange({ ...SIGNIN_STATE });
         this.props.history.push(ROUTES.HOME);
       })
       .catch(error => {
-        console.log('error ', error.message);
         this.props.showError( error );
       });
 
@@ -55,7 +52,6 @@ class SignInFormBase extends Component {
   };
 
   render() {
-    //console.log('sign in', this.props);
     const email = this.props.signindata.email;
     const password = this.props.signindata.password;
 

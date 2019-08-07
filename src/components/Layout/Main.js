@@ -17,32 +17,27 @@ import Privacy from './Privacy';
 class Main extends React.Component {
 
   render = () => {
-    //console.log('main', this.props);
     return (
       <div className='container' id='main'>
         <Switch>
-      <Route exact path={ROUTES.HOME} component={Home} />
-      <Route path={ROUTES.ABOUT} component={About} />
-      <Route path={ROUTES.PARKS} render={props => 
+          <Route exact path={ROUTES.HOME} component={Home} />
+          <Route path={ROUTES.ABOUT} component={About} />
+          <Route path={ROUTES.PARKS} render={props => 
         <Parks 
         parks={this.props.parks}
         user={this.props.user}
         />}
       />
-
-      <Route path={ROUTES.PARK_ID} /*component={ParkInfo}*/ render={props => 
+      <Route path={ROUTES.PARK_ID} render={props => 
         <ParkInfo parks={this.props.parks} />} />
-
       <Route path={ROUTES.STORES} render={props => 
         <Stores
           user={this.props.user}
           stores={this.props.stores}
           />}
         />
-
       <Route path={ROUTES.STORE_ID} render={props => 
         <StoreInfo stores={this.props.stores} />} />
-        
       <Route path={ROUTES.SIGN_IN} render={props => 
         <SignIn 
           signinChange={this.props.signinChange} 
@@ -79,7 +74,6 @@ class Main extends React.Component {
     </div>
     );
   }
-    
 }
 
 export default withRouter(Main);

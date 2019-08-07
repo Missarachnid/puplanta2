@@ -1,7 +1,6 @@
 import React from 'react';
 import { AuthUserContext, withAuthorization } from '../Session';
 import PasswordChangeForm from './PasswordChange';
-import SignOutButton from './SignOut';
 
 class Account extends React.Component {
 
@@ -11,7 +10,7 @@ class Account extends React.Component {
     <AuthUserContext.Consumer>
       {authUser => (
         <div className='jumbotron forms-format' id='account'>
-        <h1>Welcome {authUser.email}</h1>
+        <h1 className='headline'>Welcome {authUser.email}</h1>
         <PasswordChangeForm 
           user={this.props.user}
           pwchange={this.props.pwchange}
@@ -19,9 +18,11 @@ class Account extends React.Component {
           showError={this.props.showError}
           error={this.props.error}
         />
-        <br></br>
-        <SignOutButton></SignOutButton>
+        <div>
+        <p>Please report any issues to admin@puplanta.awsapps.com</p>
       </div>
+      </div>
+      
       )}
     </AuthUserContext.Consumer>
     )

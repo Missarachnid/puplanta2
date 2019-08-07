@@ -8,7 +8,6 @@ import Stores from './Stores';
 import Parks from './Parks';
 import Account from './Account';
 import SignIn from './SignIn';
-import SignOut from './SignOut';
 import PasswordForgetPage from './PasswordForget';
 //import PasswordChange from './PasswordChange';
 import SignUpPage from './SignUp';
@@ -30,15 +29,17 @@ class Main extends React.Component {
         user={this.props.user}
         />}
       />
+
       <Route path={ROUTES.PARK_ID} /*component={ParkInfo}*/ render={props => 
         <ParkInfo parks={this.props.parks} />} />
+
       <Route path={ROUTES.STORES} render={props => 
         <Stores
           user={this.props.user}
           stores={this.props.stores}
-          
           />}
         />
+
       <Route path={ROUTES.STORE_ID} render={props => 
         <StoreInfo stores={this.props.stores} />} />
         
@@ -50,7 +51,6 @@ class Main extends React.Component {
           error={this.props.error}
         />} 
       />
-      <Route path={ROUTES.SIGN_OUT} component={SignOut} />
       <Route path={ROUTES.SIGN_UP} render={props => 
         <SignUpPage 
         signupChange={this.props.signupChange}

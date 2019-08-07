@@ -34,19 +34,19 @@ const About = () => {
             <div className='seperator'>
             <div className='row'>
 
-              <div className='col-sm-4'>
+              <div className='col-md-4'>
                 <div className='card dog-card'>
                 <p className='card-title'>Laika</p>
                   <img src={LaikaImg} className='card-image dog-img' alt='A white dog sticking her head between a forked tree'/>
                 </div>
               </div>
-              <div className='col-sm-4'>
+              <div className='col-md-4'>
                 <div className='card dog-card'>
                 <p className='card-title'>Drogon</p>
                   <img src={DrogonImg} className='card-image dog-img' alt='A black German Shepherd sitting and waiting for a yellow ball to be thrown to him'/>
                 </div>
               </div>
-              <div className='col-sm-4'>
+              <div className='col-md-4'>
                 <div className='card dog-card'>
                 <p className='card-title'>Nimbus</p>
                   <img src={NimbusImg} className='card-image dog-img' alt='A fluffy black and gray Pomearanian standing while the wind blows through his hair'/>

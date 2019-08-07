@@ -52,7 +52,7 @@ class PasswordChangeForm extends Component {
           value={passwordtwo}
           onChange={this.onChange}
           type="password"
-          placeholder="Confirm New Password"
+          placeholder="Confirm"
           className='signup-spacer'
         />
         <br></br>

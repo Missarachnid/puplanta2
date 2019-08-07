@@ -1,10 +1,11 @@
 import React from 'react';
 import { AuthUserContext, withAuthorization } from '../Session';
 import PasswordChangeForm from './PasswordChange';
-import { Link } from 'react-router-dom';
-import Privacy from './Privacy';
+import { Link, withRouter } from 'react-router-dom';
+import {  compose  } from 'recompose';
+import * as ROUTES from '../Routes/Routes';
 
-class Account extends React.Component {
+class AccountPage extends React.Component {
 
   render = () => {
     return (
@@ -20,7 +21,7 @@ class Account extends React.Component {
           error={this.props.error}
         />
         <div>
-        <Link to={Privacy}>Privacy Policy</Link>
+        <Link to={ROUTES.PRIVACY}>Privacy Policy</Link>
         <p>Please report any issues to admin@puplanta.awsapps.com</p>
       </div>
       </div>
@@ -33,4 +34,10 @@ class Account extends React.Component {
 
 const condition = authUser => !!authUser;
 
-export default withAuthorization(condition)(Account);
+const Account = compose(
+  withRouter, 
+  withAuthorization(condition)
+  
+)(AccountPage);
+
+export default Account ;

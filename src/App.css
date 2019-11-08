@@ -185,7 +185,7 @@ input {
  max-width: 120px;
  background-size: cover;
  margin: 0 auto 20px auto;
- border: 3px solid #870000;
+ border: 1px solid #870000;
  box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);
 }
 
@@ -249,7 +249,7 @@ input {
   background-size: cover;
   box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);
   margin: 6px auto 20px auto;
-  border: 2px solid #870000;
+  border: 1px solid #870000;
 }
 .card-stores {
   height: 320px;

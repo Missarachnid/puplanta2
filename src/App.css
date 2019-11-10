@@ -81,7 +81,7 @@ box-shadow: 0 1px 5px 1px rgba(135, 0, 0, 0.3);
 
 /* Home */
 #georgia {
-  max-width: 300px;
+  max-width: 100%;
 }
 
 #pup-home {
@@ -191,7 +191,7 @@ input {
 .paw-button {
   background: url('./img/paws.svg') center no-repeat;
   background-size: contain;
-  width: 60px;
+  min-width: 60px;
   border: 1px ridge #870000;
   border-radius: 4px;
   box-shadow: 1px 1px 2px 1px rgba(135, 0, 0, 0.3);

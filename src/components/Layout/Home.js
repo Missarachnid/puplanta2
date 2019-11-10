@@ -1,5 +1,5 @@
 import React from 'react';
-import Georgia from '../../img/georgia-corgi.svg';
+import Georgia from '../../img/georgia-corgi.png';
 
 const Home = () => (
   <div className='jumbotron' id='home'>

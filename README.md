@@ -1,4 +1,4 @@
-#  Puplanta.com
+#  Puplanta.com- This is the old version, [click for new version.](https://github.com/Missarachnid/puplanta3)
 
 [Puplanta](http://puplanta.com/)
 
